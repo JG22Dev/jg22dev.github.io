@@ -141,6 +141,12 @@ section.block{padding-block:56px;border-top:1px solid var(--line)}
 .ways li{display:grid;gap:2px}
 .ways b{font-weight:600}
 .ways span{color:var(--muted);font-size:.95rem}
+.ways.steps{counter-reset:st}
+.ways.steps li{counter-increment:st;grid-template-columns:34px 1fr;column-gap:12px}
+.ways.steps li::before{content:counter(st);grid-row:span 2;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:var(--mono);font-size:.85rem;display:grid;place-items:center;font-weight:600}
+.note{display:block;margin-top:22px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--surface)}
+.note b{display:block;font-weight:600;margin-bottom:4px}
+.note p{margin:0;color:var(--muted);font-size:.95rem}
 .edu{margin-top:28px;display:grid;gap:10px}
 .edu div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 .edu b{display:block}
@@ -171,12 +177,13 @@ section.block{padding-block:56px;border-top:1px solid var(--line)}
 .vk-brand h2{font-size:clamp(1.8rem,3.5vw,2.4rem)}
 .org-logo{width:22px;height:auto;vertical-align:-4px;margin-right:8px}
 .lang.view{margin-left:0}
-.stack span.logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:32px;padding:0;color:var(--ink);background:var(--bg)}
-.stack span.logo svg{width:18px;height:18px}
+.stack span.logo{display:inline-flex;align-items:center;gap:5px;padding:3px 8px 3px 6px}
+.stack span.logo svg{width:13px;height:13px;flex:none}
 .logo-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
 .logo-wall figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;color:var(--ink)}
 .logo-wall svg{width:30px;height:30px}
 .logo-wall figcaption{font-size:.76rem;color:var(--muted);text-align:center}
+.logo-wall .wall-text{grid-column:1/-1;margin:0 0 4px;font-size:.95rem}
 .logo-wall h3{grid-column:1/-1;font-family:var(--body);font-size:.9rem;font-weight:600;color:var(--muted);margin:8px 0 0}
 @media (max-width:560px){.top .wrap{gap:10px}.lang button{padding:4px 8px}}
 footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
@@ -265,7 +272,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem;border-top:1p
         <div><h3 data-k="sv1">Sistemas de gestión</h3><p data-k="sv1d">Caja, stock, turnos, socios, reportes. Funcionan aunque se corte internet.</p></div>
         <div><h3 data-k="sv2">Páginas web</h3><p data-k="sv2d">Sitios y tiendas online con catálogo, carrito y SEO.</p></div>
         <div><h3 data-k="sv3">Automatizaciones</h3><p data-k="sv3d">Tareas repetitivas que se hacen solas: avisos, confirmaciones, planillas.</p></div>
-        <div><h3 data-k="sv4">Apps de celular</h3><p data-k="sv4d">Apps y juegos para Android, publicados en Google Play.</p></div>
+        <div><h3 data-k="sv4">Apps de celular</h3><p data-k="sv4d">Apps y juegos para Android, como Brigada Píxel.</p></div>
       </div>
     </div>
   </section>
@@ -280,7 +287,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem;border-top:1p
         <article class="job">
           <div class="when" data-k="j1w">Oct 2026 – hoy</div>
           <div><h3 data-k="j1t">CEO y desarrollador</h3><div class="org"><img class="org-logo" src="img/vinkko-logo.webp" alt="" width="240" height="209">Vinkko</div>
-          <p data-k="j1d">Dirijo la agencia: relevamiento con clientes, diseño de sistemas, desarrollo, instalación en el local y soporte. Publiqué la Comandera (en uso en un comercio real) y Brigada Píxel en Google Play.</p></div>
+          <p data-k="j1d">Dirijo la agencia: relevamiento con clientes, diseño de sistemas, desarrollo, instalación en el local y soporte. Publiqué la Comandera, que está en uso en un comercio real, y Brigada Píxel, en prueba cerrada en Google Play.</p></div>
         </article>
         <article class="job">
           <div class="when" data-k="j2w">Ene 2026 – Oct 2026</div>
@@ -321,21 +328,27 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem;border-top:1p
           <div><h3 data-k="sk6">Aprendiendo</h3><p data-k="sk6v">Docker y microservicios, automatizaciones con Make, IoT con ESP32 y Home Assistant, inglés</p></div>
         </div>
         <div class="logo-wall" id="logowall" hidden></div>
-      </div>
-      <div>
-        <p class="eyebrow" data-k="w_eyebrow">Método</p>
-        <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:1.4rem" data-k="w_title">Cómo trabajo</h2>
-        <ul class="ways">
-          <li><b data-k="w1">Primero el problema real</b><span data-k="w1d">Voy al local, miro cómo trabajan y recién después propongo. La Comandera nació de ver pedidos perdidos en papel.</span></li>
-          <li><b data-k="w2">Piloto chico antes de escalar</b><span data-k="w2d">Un cliente, un módulo, una versión. Cuando funciona, se amplía.</span></li>
-          <li><b data-k="w3">Documentación como entregable</b><span data-k="w3d">README, diagramas ER, minutas de decisiones y carpetas técnicas y comerciales que acompañan cada sistema.</span></li>
-          <li><b data-k="w4">Datos cuidados</b><span data-k="w4d">Migraciones aditivas con rollback, contraseñas con bcrypt, auditoría de cambios y la plata separada de los datos sensibles.</span></li>
-        </ul>
         <div class="edu">
           <div><b data-k="ed1">Analista en Sistemas</b><span data-k="ed1d">Tecnicatura Superior · ISFDyT N° 24, Quilmes · 2023 – hoy (último año)</span></div>
           <div><b data-k="ed3">Programador Full Stack</b><span>CoderHouse · 2022 – 2023</span></div>
           <div><b data-k="ed2">Certificado en IA Generativa</b><span data-k="ed2d">Microsoft y LinkedIn Learning · en curso</span></div>
           <div><b data-k="ed4">Otras certificaciones</b><span data-k="ed4d">Responsive Web Design (freeCodeCamp, 2023) · Argentina Programa 4.0 (2023)</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow" data-k="w_eyebrow">Método</p>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:1.4rem" data-k="w_title">Cómo trabajo</h2>
+        <ol class="ways steps">
+          <li><b data-k="w1">Relevar</b><span data-k="w1d">Voy al lugar, miro cómo trabajan y pregunto por qué cada paso se hace así. Casi siempre hay una razón que no está escrita.</span></li>
+          <li><b data-k="w2">Proponer</b><span data-k="w2d">Dibujo el proceso y el modelo de datos antes de programar, y propongo un piloto chico: un módulo, una versión. Cuando funciona, se amplía.</span></li>
+          <li><b data-k="w3">Construir</b><span data-k="w3d">Muestro avances y ajusto con quien lo va a usar. La documentación es parte de la entrega: README, diagramas y registro de decisiones.</span></li>
+          <li><b data-k="w4">Probar de punta a punta</b><span data-k="w4d">Pruebo el circuito completo como lo usaría alguien que no conoce el sistema, no solo la parte que toqué. Y sumo pruebas automáticas para que un cambio no rompa lo que ya andaba.</span></li>
+          <li><b data-k="w5">Instalar y enseñar</b><span data-k="w5d">Lo instalo y le enseño a quien lo usa, pensando en su día a día. Si tengo que explicar mucho cómo se usa algo, lo diseñé mal.</span></li>
+          <li><b data-k="w6">Acompañar</b><span data-k="w6d">Sigo ahí después de entregar, con los datos cuidados: cambios que se pueden deshacer, contraseñas protegidas y registro de cada modificación.</span></li>
+        </ol>
+        <div class="note">
+          <b data-k="wai">Cómo uso la IA</b>
+          <p data-k="waid">Uso inteligencia artificial todos los días, como una herramienta más. El relevamiento, el diseño de la solución y las decisiones son míos. La IA me ayuda a escribir más rápido y a revisar lo que hago, y todo lo que entrego lo probé y lo puedo explicar.</p>
         </div>
       </div>
     </div>
@@ -386,9 +399,9 @@ const T = {
     sv1:"Management systems", sv1d:"Cash register, stock, appointments, members, reports. They keep working even without internet.",
     sv2:"Websites", sv2d:"Sites and online stores with catalog, cart and SEO.",
     sv3:"Automations", sv3d:"Repetitive tasks that run on their own: notifications, confirmations, spreadsheets.",
-    sv4:"Mobile apps", sv4d:"Android apps and games, published on Google Play.",
+    sv4:"Mobile apps", sv4d:"Android apps and games, like Brigada Píxel.",
     e_eyebrow:"Background", e_title:"Experience",
-    j1w:"Oct 2026 – present", j1t:"CEO and developer", j1d:"I run the agency: client discovery, system design, development, on-site installation and support. Released Comandera (in use at a real business) and Brigada Píxel on Google Play.",
+    j1w:"Oct 2026 – present", j1t:"CEO and developer", j1d:"I run the agency: client discovery, system design, development, on-site installation and support. Released Comandera, in use at a real business, and Brigada Píxel, in closed testing on Google Play.",
     j2w:"Jan 2026 – Oct 2026", j2t:"Junior Process Analyst", j2o:"Buenos Aires City Government", j2d:"Ministry of Culture, Infrastructure area. I mapped, modeled and optimized workflows with flowcharts, translated requirements between operations, technical teams and management, and wrote survey reports for museums, libraries and cultural centers.",
     j3w:"Jul 2024 – Jan 2026", j3t:"Data Entry / Junior Analyst", j3d:"Data entry and validation to keep records consistent, reports from field surveys, Excel tracking sheets, and scheduling of transport and maintenance crews.",
     j4w:"Aug 2024 – present", j4t:"Technology teacher", j4o:"Secondary schools in Buenos Aires Province · including adult education", j4d:"I teach Technology & Digital Practices (ICT). I design modular course plans, assess learning and teach digital and office tools to adult students.",
@@ -397,10 +410,13 @@ const T = {
     sk5v:"Automated tests (Vitest, 202 tests in Comandera), Playwright, Mermaid, Git / GitHub",
     sk6:"Learning", sk6v:"Docker and microservices, automations with Make, IoT with ESP32 and Home Assistant, English",
     w_eyebrow:"Method", w_title:"How I work",
-    w1:"The real problem comes first", w1d:"I visit the business, watch how they work, and only then propose a solution. Comandera started from watching paper orders get lost.",
-    w2:"Small pilot before scaling", w2d:"One client, one module, one version. Once it works, it grows.",
-    w3:"Documentation is a deliverable", w3d:"READMEs, ER diagrams, decision logs and technical and commercial binders that ship with each system.",
-    w4:"Careful with data", w4d:"Additive migrations with rollback, bcrypt passwords, change auditing, and money kept apart from sensitive data.",
+    w1:"Discover", w1d:"I go on site, watch how people work and ask why each step is done that way. There is almost always a reason nobody wrote down.",
+    w2:"Propose", w2d:"I map the process and the data model before writing code, and propose a small pilot: one module, one version. Once it works, it grows.",
+    w3:"Build", w3d:"I show progress and adjust with the people who will use it. Documentation is part of the delivery: READMEs, diagrams and a decision log.",
+    w4:"Test end to end", w4d:"I test the whole flow the way someone who doesn't know the system would, not just the part I changed. And I add automated tests so a change doesn't break what already worked.",
+    w5:"Install and teach", w5d:"I install it and teach the people who use it, thinking about their day. If I have to explain a lot, I designed it wrong.",
+    w6:"Stay around", w6d:"I keep supporting it after delivery, with careful data handling: reversible changes, protected passwords and a record of every modification.",
+    wai:"How I use AI", waid:"I use AI every day, as one more tool. Discovery, solution design and decisions are mine. AI helps me write faster and review my work, and everything I ship has been tested and I can explain it.",
     ed1:"Systems Analyst (degree)", ed1d:"Higher technical degree · ISFDyT N° 24, Quilmes · 2023 – present (final year)", ed3:"Full Stack Developer", ed4:"Other certifications", ed4d:"Responsive Web Design (freeCodeCamp, 2023) · Argentina Programa 4.0 (2023)",
     ed2:"Generative AI Certificate", ed2d:"Microsoft and LinkedIn Learning · in progress",
     c_eyebrow:"Let's talk", c_title:"Contact", c_sub:"For a project, a system for your business or a job offer.",
@@ -508,12 +524,12 @@ const WALL=[["Backend",["php","laravel","nodedotjs","nestjs"]],["db",["mysql","m
 const WALL_T={es:{Backend:"Backend",db:"Bases de datos",Frontend:"Frontend",mobile:"Escritorio y móvil",tools:"Calidad, herramientas y otros lenguajes"},en:{Backend:"Backend",db:"Databases",Frontend:"Frontend",mobile:"Desktop & mobile",tools:"Quality, tooling and other languages"}};
 function svgFor(k){const i=ICONS[k];if(!i)return"";const h=i.h,r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4,6),16);const dark=(0.2126*r+0.7152*g+0.0722*b)<60;return `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${dark?"currentColor":"#"+h}" d="${i.p}"/></svg>`}
 let view="text";
-function chip(x){const k=IK[x];if(view==="logos"&&k&&ICONS[k])return `<span class="logo" role="img" aria-label="${esc(x)}" title="${esc(x)}">${svgFor(k)}</span>`;return `<span>${esc(x)}</span>`}
+function chip(x){const k=IK[x];if(view==="logos"&&k&&ICONS[k])return `<span class="logo">${svgFor(k)}${esc(x)}</span>`;return `<span>${esc(x)}</span>`}
 function renderWall(){
   const w=document.getElementById("logowall"), t=document.getElementById("skills-text");
   w.hidden=view!=="logos"; t.hidden=view==="logos";
   if(view!=="logos")return;
-  w.innerHTML=WALL.map(([g,ks])=>`<h3>${WALL_T[lang][g]}</h3>`+ks.filter(k=>ICONS[k]).map(k=>`<figure>${svgFor(k)}<figcaption>${esc(ICONS[k].t)}</figcaption></figure>`).join("")).join("");
+  const af=t.querySelector("div");w.innerHTML=(af?`<h3>${af.children[0].textContent}</h3><p class="wall-text">${af.children[1].innerHTML}</p>`:"")+WALL.map(([g,ks])=>`<h3>${WALL_T[lang][g]}</h3>`+ks.filter(k=>ICONS[k]).map(k=>`<figure>${svgFor(k)}<figcaption>${esc(ICONS[k].t)}</figcaption></figure>`).join("")).join("");
 }
 function setView(v){view=v;document.querySelectorAll(".view button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.view===v));renderGrid();renderWall();try{localStorage.setItem("pf-view",v)}catch(e){}}
 let lang="es", filter="all";
