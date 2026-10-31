@@ -287,7 +287,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem;border-top:1p
         <article class="job">
           <div class="when" data-k="j1w">Oct 2026 – hoy</div>
           <div><h3 data-k="j1t">CEO y desarrollador</h3><div class="org"><img class="org-logo" src="img/vinkko-logo.webp" alt="" width="240" height="209">Vinkko</div>
-          <p data-k="j1d">Dirijo la agencia: relevamiento con clientes, diseño de sistemas, desarrollo, instalación en el local y soporte. Publiqué la Comandera, que está en uso en un comercio real, y Brigada Píxel, en prueba cerrada en Google Play.</p></div>
+          <p data-k="j1d">Dirijo la agencia: relevamiento con clientes, diseño de sistemas, desarrollo, instalación en el local y soporte. Publiqué la Comandera, que está en uso en un comercio real, y Brigada Píxel, que ya está disponible en Google Play.</p></div>
         </article>
         <article class="job">
           <div class="when" data-k="j2w">Ene 2026 – Oct 2026</div>
@@ -401,7 +401,7 @@ const T = {
     sv3:"Automations", sv3d:"Repetitive tasks that run on their own: notifications, confirmations, spreadsheets.",
     sv4:"Mobile apps", sv4d:"Android apps and games, like Brigada Píxel.",
     e_eyebrow:"Background", e_title:"Experience",
-    j1w:"Oct 2026 – present", j1t:"CEO and developer", j1d:"I run the agency: client discovery, system design, development, on-site installation and support. Released Comandera, in use at a real business, and Brigada Píxel, in closed testing on Google Play.",
+    j1w:"Oct 2026 – present", j1t:"CEO and developer", j1d:"I run the agency: client discovery, system design, development, on-site installation and support. Released Comandera, in use at a real business, and Brigada Píxel, now available on Google Play.",
     j2w:"Jan 2026 – Oct 2026", j2t:"Junior Process Analyst", j2o:"Buenos Aires City Government", j2d:"Ministry of Culture, Infrastructure area. I mapped, modeled and optimized workflows with flowcharts, translated requirements between operations, technical teams and management, and wrote survey reports for museums, libraries and cultural centers.",
     j3w:"Jul 2024 – Jan 2026", j3t:"Data Entry / Junior Analyst", j3d:"Data entry and validation to keep records consistent, reports from field surveys, Excel tracking sheets, and scheduling of transport and maintenance crews.",
     j4w:"Aug 2024 – present", j4t:"Technology teacher", j4o:"Secondary schools in Buenos Aires Province · including adult education", j4d:"I teach Technology & Digital Practices (ICT). I design modular course plans, assess learning and teach digital and office tools to adult students.",
@@ -469,9 +469,9 @@ const P = [
       en:["Filterable catalog and a cart that builds the order and opens it in WhatsApp","Admin panel with two roles: administrator and catalog editor","Phone photos are cropped, adjusted and compressed to about 80 KB in the browser","Validation in the form and again in Firestore security rules; SEO with JSON-LD and GA4"]},
    stack:["React","Vite","Firebase Auth","Firestore"],
    imgs:[["joy/01-tienda","Catálogo con filtros por categoría y material","Catalog with category and material filters"],["joy/02-ficha-pieza","Ficha de la pieza con la información del material","Product detail with material information"],["joy/03-carrito","Carrito con el pedido listo para enviar por WhatsApp","Cart with the order ready to send via WhatsApp"],["joy/05-panel-catalogo","Panel: gestión de piezas con stock y visibilidad","Admin: products with stock and visibility"],["joy/06-formulario-pieza","Carga de una pieza con asistente para completar nombre y descripción","Adding a product with a name and description assistant"],["joy/07-materiales","Materiales y categorías editables desde el panel","Materials and categories editable from the panel"],["joy/08-usuarios","Accesos del equipo por rol, que se desactivan en lugar de borrarse","Team access by role, deactivated instead of deleted"],["joy/09-celular-tienda","La tienda en el celular","The store on a phone"]]},
-  {name:"Brigada Píxel", cat:"game", st:"test", ver:"v1.0.2 · Google Play",
+  {name:"Brigada Píxel", cat:"game", st:"prod", ver:"v1.0.4 · Google Play", link:"https://play.google.com/store/apps/details?id=ar.vinkko.brigadapixel", linkLabel:{es:"Descargar en Google Play",en:"Get it on Google Play"},
    kind:{es:"Juego de plataformas 8-bit para Android · Vinkko", en:"8-bit platformer for Android · Vinkko"},
-   d:{es:"Hecho desde cero en JavaScript, sin motor de juegos: los gráficos y la música se generan por código y el juego entero pesa unos 260 KB. En prueba cerrada en Google Play.", en:"Built from scratch in JavaScript with no game engine: graphics and music are generated in code and the whole game weighs about 260 KB. In closed testing on Google Play."},
+   d:{es:"Hecho desde cero en JavaScript, sin motor de juegos: los gráficos y la música se generan por código y el juego entero pesa unos 260 KB. Disponible gratis en Google Play.", en:"Built from scratch in JavaScript with no game engine: graphics and music are generated in code and the whole game weighs about 260 KB. Available for free on Google Play."},
    b:{es:["4 personajes, 25 niveles en 5 mundos y 5 jefes con fases propias","Niveles generados con semilla y revisión automática de trampas injustas","Controles táctiles editables (cruceta o joystick) y soporte de mandos","Bots de prueba con Playwright que juegan contra cada jefe; prueba cerrada con 12 testers"],
       en:["4 characters, 25 levels across 5 worlds and 5 bosses with their own phases","Seeded level generation with an automatic pass that removes unfair traps","Editable touch controls (D-pad or joystick) and gamepad support","Playwright test bots that fight every boss; closed test with 12 testers"]},
    stack:["JavaScript","Canvas 2D","Web Audio API","Capacitor","AdMob","Playwright"],
